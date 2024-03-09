@@ -1,11 +1,47 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import leaflet from "../utils/img/leafletlogo.png";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
+import { auth } from "../utils/firebase";
+import { validate } from "../utils/validation";
 
 const SignIn = () => {
   const [isSignIn, setIsSignIn] = useState(true);
+  const email = useRef(null);
+  const name = useRef(null);
+  const password = useRef(null);
+
+  const [valid, setValid] = useState("");
+  const [err,setErr] = useState(null)
 
   const signhandler = () => {
     setIsSignIn(!isSignIn);
+  };
+
+  const handleSign = () => {
+    const validation = validate(email.current.value, password.current.value);
+    setValid(validation);
+    console.log(valid)
+
+    if (valid != null) return;
+
+    isSignIn
+      ? signInWithEmailAndPassword(
+          auth,
+          email.current.value,
+          password.current.value
+        )
+          .then((r) => console.log(r))
+          .catch((e) => setErr(e.message))
+      : createUserWithEmailAndPassword(
+          auth,
+          email.current.value,
+          password.current.value
+        )
+          .then((r) => console.log(r))
+          .catch((e) => setErr(e.message));
   };
 
   return (
@@ -29,7 +65,7 @@ const SignIn = () => {
                 Create a free account
               </a>
             </p>
-            <form class="mt-8" onSubmit={(e)=>e.preventDefault}>
+            <form class="mt-8" onSubmit={(e) => e.preventDefault}>
               <div class="space-y-5">
                 {isSignIn ? (
                   <div></div>
@@ -41,6 +77,7 @@ const SignIn = () => {
                     </label>
                     <div class="mt-2">
                       <input
+                        ref={name}
                         class="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                         type="text"
                         placeholder="Name"
@@ -55,6 +92,7 @@ const SignIn = () => {
                   </label>
                   <div class="mt-2">
                     <input
+                      ref={email}
                       class="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                       type="email"
                       placeholder="Email"
@@ -67,25 +105,23 @@ const SignIn = () => {
                       {" "}
                       Password{" "}
                     </label>
-                    <a
-                      href="#"
-                      title=""
-                      class="text-sm font-semibold text-black hover:underline"
-                    >
-                      {" "}
-                      Forgot password?{" "}
-                    </a>
                   </div>
                   <div class="mt-2">
                     <input
+                      ref={password}
                       class="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                       type="password"
                       placeholder="Password"
                     />
                   </div>
                 </div>
+                {valid != null && (
+                  <div className="text-red-400">{valid}</div>
+                )}
+                <div className="text-red-400">{err}</div>
                 <div>
                   <button
+                  onClick={handleSign}
                     type="button"
                     class="inline-flex w-full items-center justify-center rounded-md bg-black px-3.5 py-2.5 font-semibold leading-7 text-white hover:bg-black/80"
                   >
