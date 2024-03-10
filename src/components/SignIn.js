@@ -1,11 +1,13 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import leaflet from "../utils/img/leafletlogo.png";
 import {
   createUserWithEmailAndPassword,
+  onAuthStateChanged,
   signInWithEmailAndPassword,
 } from "firebase/auth";
 import { auth } from "../utils/firebase";
 import { validate } from "../utils/validation";
+import { useNavigate } from "react-router-dom";
 
 const SignIn = () => {
   const [isSignIn, setIsSignIn] = useState(true);
@@ -14,8 +16,9 @@ const SignIn = () => {
   const password = useRef(null);
 
   const [valid, setValid] = useState("");
-  const [err,setErr] = useState(null)
+  const [err, setErr] = useState(null);
 
+  const navigate =  useNavigate()
   const signhandler = () => {
     setIsSignIn(!isSignIn);
   };
@@ -23,7 +26,7 @@ const SignIn = () => {
   const handleSign = () => {
     const validation = validate(email.current.value, password.current.value);
     setValid(validation);
-    console.log(valid)
+    console.log(valid);
 
     if (valid != null) return;
 
@@ -44,6 +47,19 @@ const SignIn = () => {
           .catch((e) => setErr(e.message));
   };
 
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        console.log(user);
+        navigate("/home");
+      } else {
+        console.log("log out");
+        navigate("/");
+      }
+    });
+  }, []);
+
+
   return (
     <div>
       <section>
@@ -53,18 +69,31 @@ const SignIn = () => {
               <img className="w-[90px]" src={leaflet} />
             </div>
             <h2 class="text-center text-2xl font-bold leading-tight text-black">
-              Sign in to your account
+             {isSignIn ?  "Sign in to your account" : "Create a free account"}
             </h2>
-            <p class="mt-2 text-center text-sm text-gray-600 ">
-              Don&#x27;t have an account?{" "}
-              <a
-                onClick={signhandler}
-                title=""
-                class="font-semibold text-black transition-all duration-200 hover:underline"
-              >
-                Create a free account
-              </a>
-            </p>
+            {isSignIn ? (
+              <p class="mt-2 text-center text-sm text-gray-600 ">
+                Don&#x27;t have an account?{" "}
+                <a
+                  onClick={signhandler}
+                  title=""
+                  class="font-semibold text-black transition-all duration-200 hover:underline cursor-pointer"
+                >
+                  Create a free account
+                </a>
+              </p>
+            ) : (
+              <p class="mt-2 text-center text-sm text-gray-600 ">
+                Already have an account?{" "}
+                <a
+                  onClick={signhandler}
+                  title=""
+                  class="font-semibold text-black transition-all duration-200 hover:underline cursor-pointer"
+                >
+                  Sign in to your account
+                </a>
+              </p>
+            )}
             <form class="mt-8" onSubmit={(e) => e.preventDefault}>
               <div class="space-y-5">
                 {isSignIn ? (
@@ -115,13 +144,11 @@ const SignIn = () => {
                     />
                   </div>
                 </div>
-                {valid != null && (
-                  <div className="text-red-400">{valid}</div>
-                )}
+                {valid != null && <div className="text-red-400">{valid}</div>}
                 <div className="text-red-400">{err}</div>
                 <div>
                   <button
-                  onClick={handleSign}
+                    onClick={handleSign}
                     type="button"
                     class="inline-flex w-full items-center justify-center rounded-md bg-black px-3.5 py-2.5 font-semibold leading-7 text-white hover:bg-black/80"
                   >

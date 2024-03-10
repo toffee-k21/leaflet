@@ -3,6 +3,8 @@ import Home from "./Pages/Home";
 import Header from "./components/Header";
 import SignIn from "./components/SignIn";
 import Sign from "./Pages/Sign";
+import Profile from "./components/Profile";
+import Library from "./Pages/Library";
 
 function App() {
   return (
@@ -13,11 +15,17 @@ function App() {
 const appRouter = createBrowserRouter([
   {
     path: "/",
-    element: <SignIn />,
+    element: <Sign />,
   },
   {
     path: "/Home",
     element: <Home />,
+  },{
+    path:"/profile",
+    element: <Profile />
+  },{
+    path:'/library',
+    element: <Library />
   }]
 );
 
