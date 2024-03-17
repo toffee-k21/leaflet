@@ -6,10 +6,14 @@ import Sign from "./Pages/Sign";
 import Profile from "./components/Profile";
 import Library from "./Pages/Library";
 import UploadProfilePic from "./components/UploadProfilePic";
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore";
 
 function App() {
   return (
+    <Provider store={appStore}>
     <RouterProvider router={appRouter} />
+    </Provider>
   );
 }
 

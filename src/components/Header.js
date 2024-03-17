@@ -1,22 +1,30 @@
 import React, { useEffect } from "react";
 import leaflet from "../utils/img/leafletlogo.png";
 import { onAuthStateChanged } from "firebase/auth";
-import { auth } from "../utils/firebase";
+import { auth, db } from "../utils/firebase";
 import { Link, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addUserDetails } from "../utils/userSlice";
+import { getDoc } from "firebase/firestore";
 
 const Header = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch()
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
         console.log(user);
+        dispatch(addUserDetails(user))
         // navigate("/home");
       } else {
-        console.log("log out");
+        // console.log("log out");
         navigate("/");
       }
     });
+
+    //getting and setting user details
+    // const userDetails = getDoc(db, 'users' , )
   }, []);
 
   return (

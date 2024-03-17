@@ -4,21 +4,26 @@ import {
   createUserWithEmailAndPassword,
   onAuthStateChanged,
   signInWithEmailAndPassword,
+  updateProfile,
 } from "firebase/auth";
-import { auth } from "../utils/firebase";
+import { auth, db } from "../utils/firebase";
 import { validate } from "../utils/validation";
 import { useNavigate } from "react-router-dom";
+import { addDoc, collection } from "firebase/firestore";
+import { useDispatch } from "react-redux";
+import { addUserDetails, addUserNamedocId } from "../utils/userSlice";
 
 const SignIn = () => {
   const [isSignIn, setIsSignIn] = useState(true);
   const email = useRef(null);
   const name = useRef(null);
   const password = useRef(null);
+  const dispatch = useDispatch()
 
   const [valid, setValid] = useState("");
   const [err, setErr] = useState(null);
 
-  const navigate =  useNavigate()
+  const navigate = useNavigate();
   const signhandler = () => {
     setIsSignIn(!isSignIn);
   };
@@ -26,7 +31,7 @@ const SignIn = () => {
   const handleSign = () => {
     const validation = validate(email.current.value, password.current.value);
     setValid(validation);
-    console.log(valid);
+    // console.log(valid);
 
     if (valid != null) return;
 
@@ -36,21 +41,30 @@ const SignIn = () => {
           email.current.value,
           password.current.value
         )
-          .then((r) => console.log(r))
+          .then((r) => console.log('hello user'))
           .catch((e) => setErr(e.message))
       : createUserWithEmailAndPassword(
           auth,
           email.current.value,
           password.current.value
         )
-          .then((r) => console.log(r))
+          .then(async (r) => {
+            console.log('hello user');
+            updateProfile(auth.currentUser, {
+              displayName: name.current.value
+            })
+            .then((r)=>console.log(r))
+            .catch((e)=>console.log(e))
+            // console.log(docRef.id)
+          })
           .catch((e) => setErr(e.message));
   };
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
-        console.log(user);
+        // console.log(user);
+        dispatch(addUserDetails(user))
         navigate("/home");
       } else {
         console.log("log out");
@@ -58,7 +72,6 @@ const SignIn = () => {
       }
     });
   }, []);
-
 
   return (
     <div>
@@ -69,7 +82,7 @@ const SignIn = () => {
               <img className="w-[90px]" src={leaflet} />
             </div>
             <h2 class="text-center text-2xl font-bold leading-tight text-black">
-             {isSignIn ?  "Sign in to your account" : "Create a free account"}
+              {isSignIn ? "Sign in to your account" : "Create a free account"}
             </h2>
             {isSignIn ? (
               <p class="mt-2 text-center text-sm text-gray-600 ">
