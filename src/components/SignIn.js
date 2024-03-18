@@ -11,7 +11,7 @@ import { validate } from "../utils/validation";
 import { useNavigate } from "react-router-dom";
 import { addDoc, collection } from "firebase/firestore";
 import { useDispatch } from "react-redux";
-import { addUserDetails, addUserNamedocId } from "../utils/userSlice";
+import { addProfilePic, addUserDetails, addUserName, addUserNamedocId } from "../utils/userSlice";
 
 const SignIn = () => {
   const [isSignIn, setIsSignIn] = useState(true);
@@ -64,7 +64,8 @@ const SignIn = () => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
         // console.log(user);
-        dispatch(addUserDetails(user))
+        dispatch(addUserName(user.displayName))
+        dispatch(addProfilePic(user.photoURL))
         navigate("/home");
       } else {
         console.log("log out");
@@ -113,14 +114,14 @@ const SignIn = () => {
                   <div></div>
                 ) : (
                   <div>
-                    <label for="" class="text-base font-medium text-gray-900">
+                    <label for="" className="text-base font-medium text-gray-900">
                       {" "}
                       Enter your name{" "}
                     </label>
-                    <div class="mt-2">
+                    <div className="mt-2">
                       <input
                         ref={name}
-                        class="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                        className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                         type="text"
                         placeholder="Name"
                       />
@@ -128,30 +129,30 @@ const SignIn = () => {
                   </div>
                 )}
                 <div>
-                  <label for="" class="text-base font-medium text-gray-900">
+                  <label for="" className="text-base font-medium text-gray-900">
                     {" "}
                     Email address{" "}
                   </label>
-                  <div class="mt-2">
+                  <div className="mt-2">
                     <input
                       ref={email}
-                      class="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                      className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                       type="email"
                       placeholder="Email"
                     />
                   </div>
                 </div>
                 <div>
-                  <div class="flex items-center justify-between">
-                    <label for="" class="text-base font-medium text-gray-900">
+                  <div className="flex items-center justify-between">
+                    <label for="" className="text-base font-medium text-gray-900">
                       {" "}
                       Password{" "}
                     </label>
                   </div>
-                  <div class="mt-2">
+                  <div className="mt-2">
                     <input
                       ref={password}
-                      class="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                      className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                       type="password"
                       placeholder="Password"
                     />

@@ -3,7 +3,7 @@ import Home from "./Pages/Home";
 import Header from "./components/Header";
 import SignIn from "./components/SignIn";
 import Sign from "./Pages/Sign";
-import Profile from "./components/Profile";
+import Profile from "./Pages/Profile";
 import Library from "./Pages/Library";
 import UploadProfilePic from "./components/UploadProfilePic";
 import { Provider } from "react-redux";
@@ -32,8 +32,8 @@ const appRouter = createBrowserRouter([
     path:'/library',
     element: <Library />
   },{
-    path:'/uploadprofile',
-    element: <UploadProfilePic />
+    path:'/profile',
+    element: <Profile />
   }]
 );
 
