@@ -11,7 +11,7 @@ import { validate } from "../utils/validation";
 import { useNavigate } from "react-router-dom";
 import { addDoc, collection } from "firebase/firestore";
 import { useDispatch } from "react-redux";
-import { addProfilePic, addUserDetails, addUserName, addUserNamedocId } from "../utils/userSlice";
+import { addProfilePic, addUserDetails, addUserName, addUserNamedocId, adduserId } from "../utils/userSlice";
 
 const SignIn = () => {
   const [isSignIn, setIsSignIn] = useState(true);
@@ -66,6 +66,7 @@ const SignIn = () => {
         // console.log(user);
         dispatch(addUserName(user.displayName))
         dispatch(addProfilePic(user.photoURL))
+        dispatch(adduserId(user.uid))
         navigate("/home");
       } else {
         console.log("log out");

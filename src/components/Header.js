@@ -4,7 +4,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import { auth, db } from "../utils/firebase";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { addProfilePic, addUserDetails, addUserName } from "../utils/userSlice";
+import { addProfilePic, addUserDetails, addUserName, adduserId } from "../utils/userSlice";
 import { getDoc } from "firebase/firestore";
 
 const Header = () => {
@@ -17,6 +17,7 @@ const Header = () => {
         console.log(user);
         dispatch(addUserName(user.displayName))
         dispatch(addProfilePic(user.photoURL))
+        dispatch(adduserId(user.uid))
         // navigate("/home");
       } else {
         // console.log("log out");

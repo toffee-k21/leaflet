@@ -4,9 +4,9 @@ const userSlice = createSlice({
     name:'users',
     initialState:{
         userName:null,
-        profilePic:null
+        profilePic:null,
+        userId: null
         // userName:null,
-        // userUid:null,
         // photoUrl:null,
         // instaId:null
     },
@@ -16,11 +16,14 @@ const userSlice = createSlice({
         },
         addProfilePic: (state,action) =>{
             state.profilePic =  action.payload
+        },
+        adduserId: (state,action) =>{
+            state.userId = action.payload
         }
     }
 
 })
 
-export const { addUserName,addProfilePic } = userSlice.actions
+export const { addUserName,addProfilePic, adduserId } = userSlice.actions
 
 export default userSlice.reducer
