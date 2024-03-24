@@ -11,7 +11,8 @@ import Header from "../components/Header";
 
 
 const PostYourBook = () => {
- const Id = useSelector((store)=>store.user)
+ const userData = useSelector((store)=>store.user)
+//  const profileImg = useSelector((store)=>store.user)
 //  console.log(Id.userId)
 
   const [userid, setUserid] = useState("");
@@ -37,8 +38,11 @@ const PostYourBook = () => {
         // Category: bookOfCat,
         Rating: rate,
         ImgVal: val,
-        userId: Id.userId,
         instaId: ig,
+        userId: userData.userId,
+        profileImg: userData.profilePic,
+        userName: userData.userName
+
       });
 
       await updateDoc(docRef, {
@@ -126,7 +130,7 @@ const PostYourBook = () => {
               prefrence
             </div>
           </div>
-          <Link to={"/reader"}>
+          <Link to={"/"}>
             <button
               className="p-1 m-2 w-1/2 bg-blue-100 rounded-md"
               onClick={clickHandle}

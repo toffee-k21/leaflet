@@ -68,12 +68,13 @@ const Header = () => {
             </ul>
           </div>
           <div className="hidden lg:block">
-            <button
+           <Link to={'/postyourbook'}><button
               type="button"
               className="rounded-md bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
             >
-              Your bookshelf
+             Add to library
             </button>
+            </Link>
           </div>
           <Link to={'/profile'}>
             <a className="text-sm font-semibold text-gray-800 hover:text-gray-900 mx-2">
