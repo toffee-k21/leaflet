@@ -14,7 +14,7 @@ const PostYourBook = () => {
  const userData = useSelector((store)=>store.user)
 //  const profileImg = useSelector((store)=>store.user)
 //  console.log(Id.userId)
-
+console.log(userData)
   const [userid, setUserid] = useState("");
   const [title, setTitle] = useState("");
   const [author, setAuthor] = useState("");

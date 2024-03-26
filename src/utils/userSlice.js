@@ -15,7 +15,7 @@ const userSlice = createSlice({
           state.userName = action.payload
         },
         addProfilePic: (state,action) =>{
-            state.profilePic =  action.payload
+            state.profilePic = action.payload
         },
         adduserId: (state,action) =>{
             state.userId = action.payload

@@ -2,7 +2,7 @@ import { ref, uploadBytes } from "firebase/storage";
 import React, { useState } from "react";
 import { auth, db, storage } from "../utils/firebase";
 import { stringify, v4 } from "uuid";
-import { addDoc, collection, doc, setDoc } from "firebase/firestore";
+import { addDoc, collection, doc, setDoc, updateDoc } from "firebase/firestore";
 import { updateProfile } from "firebase/auth";
 
 const UploadProfilePic = () => {
@@ -21,12 +21,21 @@ const UploadProfilePic = () => {
       .then((r) => console.log(r))
       .catch((e) => console.log(e));
 
+
+        updateProfile(auth.currentUser, {
+          photoURL: ImgPath,
+        })
+const docRef = doc(db,'readers',)
+        await updateDoc(docRef, {
+          bId: docRef.id,
+        });
+
     //update profilew also
-    updateProfile(auth.currentUser, {
-      photoURL: ImgPath,
-    })
-      .then((r) => console.log("updated"))
-      .catch((e) => console.log(e));
+    // updateProfile(auth.currentUser, {
+    //   photoURL: ImgPath,
+    // })
+    //   .then((r) => console.log(ImgPath))
+    //   .catch((e) => console.log(e));
   };
 
   const handleUserName = () =>

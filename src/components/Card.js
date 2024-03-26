@@ -1,23 +1,28 @@
 import React from 'react'
+import { IMG_URL, IMG_URL_profile } from '../utils/constants';
 
-const Card = () => {
+const Card = (props) => {
+  // console.log(props.books._document.data.value.mapValue.fields)
+  const {Author,Discription,ImgVal,Rating,TitleOfBook,profileImg,bId,userId,userName} = props?.books?._document?.data?.value?.mapValue?.fields;
   return (
     <div>
-        <div class="w-[400px] rounded-md p-1 shadow-md">
-  <div class="flex flex-col rounded-md bg-white">
-    <div class="flex flex-1 flex-col justify-between p-8">
-      <div class="mb-4 flex space-x-2">
+        <div class="w-[400px] rounded-md shadow-md">
+  <div class="flex flex-col rounded-md bg-sky-100">
+    <div class="flex flex-1 flex-col justify-between pb-2">
+      <div class=" flex space-x-2">
+      <h2 className='text-lg w-full h-[150px] rounded-t-md text-white flex items-end' style={{background : `url(${IMG_URL + ImgVal.stringValue + "?alt=media"})`,backgroundSize:"cover"}}>
+       <p>{TitleOfBook.stringValue}</p></h2>
       </div>
-      <div class="flex-1 py-2">
+       {/* <h2 className='text-gray-500'>by author</h2> */}
+      <div class="flex-1">
         <blockquote>
           <p class="text-gray-800">
-            “Finally, I&#x27;ve found a template that covers all bases for a
-            bootstrapped startup. We were able to launch in days, not months.”
+            {Discription.stringValue}
           </p>
         </blockquote>
         
       </div>
-      <div className="flex">
+      <div className="flex pt-2">
       <span>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -94,15 +99,14 @@ const Card = () => {
         <div class="flex items-center">
           <img
             class="h-10 w-10 flex-shrink-0 rounded-full object-cover"
-            src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHw%3D&amp;auto=format&amp;fit=crop&amp;w=800&amp;q=60"
+            src={IMG_URL_profile+ profileImg.stringValue +"?alt=media"}
             alt=""
           />
           
           <div class="ml-3 min-w-0">
             <p class="truncate text-base font-semibold text-gray-800">
-              Theresa Webb
+              {userName.stringValue}
             </p>
-            <p class="truncate text-base text-gray-500">Web Designer</p>
           </div>
         </div>
       </div>
