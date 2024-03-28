@@ -15,20 +15,22 @@ const Card = (props) => {
     userName,
   } = props?.books?._document?.data?.value?.mapValue?.fields;
   return (
-    <div className="lg:m-6 mx-1 my-4">
+    <div className="lg:m-4 mx-1 my-4">
       <div class="lg:w-[430px] w-[350px] rounded-md shadow-md">
-        <div class="flex flex-col rounded-md bg-sky-100 ">
+        <div class="flex flex-col rounded-md  ">
           <div class="flex justify-between">
             {/* <h2 className='text-gray-500'>by author</h2> */}
 
             <div class="h-[260px] w-2/3 p-2">
+            <div className="h-[164px] overflow-hidden">
             <h2 className="font-semibold text-lg">{TitleOfBook.stringValue}</h2>
             <p className="text-sm pb-1 text-gray-500">by {Author.stringValue}</p>
               <blockquote>
-                <p class="text-gray-800 h-[110px] overflow-hidden">
+                <p class="text-gray-800 ">
                   {Discription.stringValue}
                 </p>
               </blockquote>
+            </div>
               <div className="">
                 <div className="flex py-3 ">
                   <span>

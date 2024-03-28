@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import leaflet from "../utils/img/leafletlogo.png";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth, db } from "../utils/firebase";
@@ -6,10 +6,13 @@ import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addProfilePic, addUserDetails, addUserName, adduserId } from "../utils/userSlice";
 import { getDoc } from "firebase/firestore";
+import { IMG_URL_profile } from "../utils/constants";
 
 const Header = () => {
   const navigate = useNavigate();
+
   const dispatch = useDispatch()
+const [userImg,setUserImg] = useState()
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
@@ -18,6 +21,7 @@ const Header = () => {
         dispatch(addUserName(user.displayName))
         dispatch(addProfilePic(user.photoURL))
         dispatch(adduserId(user.uid))
+        setUserImg(user.photoURL)
         // navigate("/home");
       } else {
         // console.log("log out");
@@ -75,11 +79,11 @@ const Header = () => {
              Add to library
             </button>
             </Link>
-          </div>
+          </div> 
           <Link to={'/profile'}>
-            <a className="text-sm font-semibold text-gray-800 hover:text-gray-900 mx-2">
-              Profile
-            </a>
+            <div className="w-11 h-11 items-center text-center" style={{clipPath:"circle(40%)"}}>
+              <img src={IMG_URL_profile + userImg + "?alt=media" } />
+            </div>
           </Link>
 
           <div className="lg:hidden">

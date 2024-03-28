@@ -25,10 +25,10 @@ const UploadProfilePic = () => {
         updateProfile(auth.currentUser, {
           photoURL: ImgPath,
         })
-const docRef = doc(db,'readers',)
-        await updateDoc(docRef, {
-          bId: docRef.id,
-        });
+// const docRef = doc(db,'readers',)
+//         await updateDoc(docRef, {
+//           bId: docRef.id,
+//         });
 
     //update profilew also
     // updateProfile(auth.currentUser, {
