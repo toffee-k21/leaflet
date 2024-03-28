@@ -21,14 +21,13 @@ const UploadProfilePic = () => {
       .then((r) => console.log(r))
       .catch((e) => console.log(e));
 
-
-        updateProfile(auth.currentUser, {
-          photoURL: ImgPath,
-        })
-// const docRef = doc(db,'readers',)
-//         await updateDoc(docRef, {
-//           bId: docRef.id,
-//         });
+    updateProfile(auth.currentUser, {
+      photoURL: ImgPath,
+    });
+    // const docRef = doc(db,'readers',)
+    //         await updateDoc(docRef, {
+    //           bId: docRef.id,
+    //         });
 
     //update profilew also
     // updateProfile(auth.currentUser, {
@@ -46,21 +45,41 @@ const UploadProfilePic = () => {
       .catch((e) => console.log(e));
 
   return (
-    <div  className="mx-40 w-1/2">
-  <div className="border-sky-800 border">
-    <div>
-      <p className="absolute text-center m-auto w-1/2 h-1/2">Choose your image</p>
-    </div >
-      <input className="p-24 bg-sky-300 opacity-5 cursor-pointer"
-      type="file" onChange={(e) => setImg(e.target.files[0])} />
-  </div>
-      <button className="bg-black p-3 rounded-md text-white" onClick={UploadPic}>Upload</button>
-      <input
-        type="text"
-        placeholder="Enter your UserName"
-        onChange={(e) => setUserName(e.target.value)}
-      />
-      <button onClick={handleUserName}>Set userName</button>
+    <div className="mx-40 my-24">
+        <label className="py-5 my-3">
+          Upload your profile image
+        </label>
+      <div className="h-[200px]">
+        <div className="w-[200px] h-[200px] bg-sky-200 absolute flex items-center justify-center text-gray-600">
+          <p>Choose a image</p>
+        </div>
+          <input
+            className=" bg-sky-200 rounded-l-md w-[200px] h-[200px] text-center align-middle cursor-pointer p-1 opacity-0 "
+            type="file"
+            onChange={(e) => setImg(e.target.files[0])}
+          />
+          <button
+            className="bg-black w-[200px] h-[200px] border-0 border-black rounded-r-md text-white"
+            onClick={UploadPic}
+          >
+            <p className="">Upload</p>
+          </button>
+       
+      </div>
+      <div className="bg-red-600 my-3">
+        <input
+          className="p-1 border-2 border-black rounded-l-md w-96"
+          type="text"
+          placeholder="Enter your UserName"
+          onChange={(e) => setUserName(e.target.value)}
+        />
+        <button
+          onClick={handleUserName}
+          className="bg-black text-white p-1 rounded-r-md"
+        >
+          Set userName
+        </button>
+      </div>
     </div>
   );
 };
