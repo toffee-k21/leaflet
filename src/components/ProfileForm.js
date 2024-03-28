@@ -2,7 +2,7 @@ import React from 'react'
 
 const ProfileForm = () => {
   return (
-    <div>
+    <div className='m-3'>
         <input type='text' placeholder='enter your name'/>
     </div>
   )

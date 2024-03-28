@@ -16,7 +16,6 @@ signOut(auth).then(console.log('signOut')).catch(console.log('err'))
         <Header />
         <UploadProfilePic />
         <button onClick={HandleSignOut}>SignOut</button>
-        <Link to={'/uploadProfile'}><button>Upload profile picture</button></Link>
     </div>
   )
 }

@@ -46,9 +46,15 @@ const UploadProfilePic = () => {
       .catch((e) => console.log(e));
 
   return (
+    <div  className="mx-40 w-1/2">
+  <div className="border-sky-800 border">
     <div>
-      <input type="file" onChange={(e) => setImg(e.target.files[0])} />
-      <button onClick={UploadPic}>Upload</button>
+      <p className="absolute text-center m-auto w-1/2 h-1/2">Choose your image</p>
+    </div >
+      <input className="p-24 bg-sky-300 opacity-5 cursor-pointer"
+      type="file" onChange={(e) => setImg(e.target.files[0])} />
+  </div>
+      <button className="bg-black p-3 rounded-md text-white" onClick={UploadPic}>Upload</button>
       <input
         type="text"
         placeholder="Enter your UserName"
