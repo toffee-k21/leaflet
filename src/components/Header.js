@@ -13,6 +13,7 @@ const Header = () => {
 
   const dispatch = useDispatch()
 const [userImg,setUserImg] = useState()
+const [hide,setHide] = useState('hidden')
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
@@ -34,11 +35,11 @@ const [userImg,setUserImg] = useState()
   }, []);
 
 const handleHambuger =()=>{
-
+hide == 'hidden' ? setHide('block') : setHide('hidden')
 }
 
   return (
-    <div className="md:mx-[7%]">
+    <div className="lg:px-24 px-2" >
       <div className="relative w-full bg-white">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-2 sm:px-6 lg:px-8">
           <div className="inline-flex items-center space-x-2">
@@ -110,6 +111,14 @@ const handleHambuger =()=>{
           </div>
         </div>
       </div>
+      <div className={`bg-black text-white flex flex-row items-center justify-center p-6 ${hide} `}>
+            <ul className="">
+              <Link to={'/home'}><li className="p-1">Home</li></Link>
+              <Link to={'/library'}><li className="p-1">Library</li></Link>
+              <Link to={'/about'}><li className="p-1">About</li></Link>
+              <Link to={'/profile'}><li className="p-1">Profile</li></Link>
+            </ul>
+          </div>
     </div>
   );
 };

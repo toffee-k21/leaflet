@@ -49,17 +49,17 @@ const UploadProfilePic = () => {
         <label className="py-5 my-3">
           Upload your profile image
         </label>
-      <div className="h-[200px]">
-        <div className="w-[200px] h-[200px] bg-sky-200 absolute flex items-center justify-center text-gray-600">
+      <div className="lg:h-[200px]">
+        <div className="lg:w-[200px] lg:h-[200px] bg-sky-200 absolute flex items-center justify-center text-gray-600">
           <p>Choose a image</p>
         </div>
           <input
-            className=" bg-sky-200 rounded-l-md w-[200px] h-[200px] text-center align-middle cursor-pointer p-1 opacity-0 "
+            className=" bg-sky-200 rounded-l-md lg:w-[200px] lg:h-[200px] text-center align-middle cursor-pointer p-1 opacity-0 "
             type="file"
             onChange={(e) => setImg(e.target.files[0])}
           />
           <button
-            className="bg-black w-[200px] h-[200px] border-0 border-black rounded-r-md text-white"
+            className="bg-black lg:w-[200px] lg:h-[200px] border-0 border-black rounded-r-md text-white"
             onClick={UploadPic}
           >
             <p className="">Upload</p>
