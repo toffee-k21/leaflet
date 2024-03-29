@@ -16,6 +16,13 @@ const Card = (props) => {
     instaId,
   } = props?.books?._document?.data?.value?.mapValue?.fields;
 
+const fontObj = {
+  fontFamily: "Dancing Script, cursive",
+  fontOpticalSizing: "auto",
+  fontWeight: "<weight>",
+  fontStyle: "normal"
+}
+
   const fun = (a) => {
     const arr = [];
     for (let x = 1; x <= a; x++) {
@@ -25,13 +32,13 @@ const Card = (props) => {
   };
   console.log(fun(Rating.stringValue))
   return (
-    <div className="lg:m-4 mx-1 my-4">
+    <div className="lg:m-4 m-10 ">
       <div class="lg:w-[430px] w-[350px] rounded-md shadow-md">
         <div class="flex flex-col rounded-md  ">
           <div class="flex justify-between">
             {/* <h2 className='text-gray-500'>by author</h2> */}
 
-            <div class="h-[260px] w-2/3 p-2">
+            <div class="h-[280px] w-2/3 p-[10px]">
               <div
                 className="h-[164px] overflow-y-scroll"
                 style={{ scrollbarWidth: "none" }}
@@ -46,12 +53,12 @@ const Card = (props) => {
                   <p class="text-gray-800 text-sm">{Discription.stringValue}</p>
                 </blockquote>
               </div>
-              <div className=" border-t-[1px]">
-                <div className="text-xs font-semibold">Rating</div>
-                <div className="flex pb-2 ">
+              <div className="border-t-[1px]">
+                <div className="text-xs font-semibold pt-[6px] pb-1 px-[2px]">Rating</div>
+                <div className="flex pb-[6px]">
                   {/* {console.log(fun(Rating.stringValue).map(()=>console.log('hello')))} */}
                   {fun(Rating.stringValue).map(() => {
-                   return( <span className="h-[16px]">
+                   return( <div className="">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox={`0 0 24 24`}
@@ -64,9 +71,9 @@ const Card = (props) => {
                           clip-rule="evenodd"
                         ></path>
                       </svg>
-                    </span>)
+                    </div>)
                   })}
-                  <div className="text-sm mx-2">{Rating.stringValue} / 5</div>
+                  <div className="text-sm mx-2 align-text-top">{Rating.stringValue} / 5</div>
                 </div>
                 <div class="flex items-center ">
                   <a href={"https://www.instagram.com/" + instaId.stringValue}>
@@ -79,10 +86,13 @@ const Card = (props) => {
                       alt=""
                     />
                   </a>
-                  <div class="ml-3 min-w-0">
-                    <p class="truncate text-base font-semibold text-gray-800">
+                  <div class="ml-3 min-w-0 flex justify-between w-3/4">
+                    <p class="truncate font-semibold text-md text-gray-800 " style={fontObj}>
                       {userName.stringValue}
                     </p>
+                    <a href={"https://www.instagram.com/" + instaId.stringValue}>
+                    <div className="text-xs font-bold bg-black text-white p-[6px] rounded-md">connect</div>
+                    </a>
                   </div>
                 </div>
               </div>
