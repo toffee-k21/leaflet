@@ -15,7 +15,7 @@ signOut(auth).then(console.log('signOut')).catch(console.log('err'))
     <div>
         <Header />
         <UploadProfilePic />
-        <button onClick={HandleSignOut}>SignOut</button>
+        <button className='font-semibold text-lg mx-40 bg-black p-2 rounded-md text-white hover:opacity-80' onClick={HandleSignOut}>SignOut</button>
     </div>
   )
 }
