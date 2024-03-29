@@ -33,6 +33,10 @@ const [userImg,setUserImg] = useState()
     // const userDetails = getDoc(db, 'users' , )
   }, []);
 
+const handleHambuger =()=>{
+
+}
+
   return (
     <div className="md:mx-[7%]">
       <div className="relative w-full bg-white">
@@ -86,7 +90,7 @@ const [userImg,setUserImg] = useState()
             </div>
           </Link>
 
-          <div className="lg:hidden">
+          <div className="lg:hidden" onClick={handleHambuger}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"

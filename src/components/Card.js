@@ -13,6 +13,7 @@ const Card = (props) => {
     bId,
     userId,
     userName,
+    instaId
   } = props?.books?._document?.data?.value?.mapValue?.fields;
   return (
     <div className="lg:m-4 mx-1 my-4">
@@ -22,15 +23,20 @@ const Card = (props) => {
             {/* <h2 className='text-gray-500'>by author</h2> */}
 
             <div class="h-[260px] w-2/3 p-2">
-            <div className="h-[164px] overflow-hidden">
-            <h2 className="font-semibold text-lg">{TitleOfBook.stringValue}</h2>
-            <p className="text-sm pb-1 text-gray-500">by {Author.stringValue}</p>
-              <blockquote>
-                <p class="text-gray-800 ">
-                  {Discription.stringValue}
+              <div
+                className="h-[164px] overflow-y-scroll"
+                style={{ scrollbarWidth: "none" }}
+              >
+                <h2 className="font-semibold text-lg">
+                  {TitleOfBook.stringValue}
+                </h2>
+                <p className="text-sm pb-1 text-gray-500">
+                  by {Author.stringValue}
                 </p>
-              </blockquote>
-            </div>
+                <blockquote>
+                  <p class="text-gray-800 text-sm">{Discription.stringValue}</p>
+                </blockquote>
+              </div>
               <div className="">
                 <div className="flex py-3 ">
                   <span>
@@ -104,15 +110,17 @@ const Card = (props) => {
                     </svg>
                   </span>
                 </div>
-                <div class="flex items-center">
-                  <img
-                    class="h-10 w-10 flex-shrink-0 rounded-full object-cover"
-                    src={
-                      IMG_URL_profile + profileImg.stringValue + "?alt=media"
-                    }
-                    alt=""
-                  />
-
+                <div class="flex items-center ">
+                  <a href={"https://www.instagram.com/"+instaId.stringValue}>
+                    {" "}
+                    <img
+                      class="h-10 w-10 flex-shrink-0 rounded-full object-cover cursor-pointer"
+                      src={
+                        IMG_URL_profile + profileImg.stringValue + "?alt=media"
+                      }
+                      alt=""
+                    />
+                  </a>
                   <div class="ml-3 min-w-0">
                     <p class="truncate text-base font-semibold text-gray-800">
                       {userName.stringValue}
@@ -129,9 +137,7 @@ const Card = (props) => {
                 })`,
                 backgroundSize: "cover",
               }}
-            >
-             
-            </div>
+            ></div>
             <div class="mt-4 border-t border-gray-300 pt-4 dark:border-gray-800"></div>
           </div>
         </div>
