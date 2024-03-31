@@ -5,8 +5,9 @@ import { auth, db } from "../utils/firebase";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addProfilePic, addUserDetails, addUserName, adduserId } from "../utils/userSlice";
-import { getDoc } from "firebase/firestore";
+import { collection, getDoc, getDocs } from "firebase/firestore";
 import { IMG_URL_profile } from "../utils/constants";
+import { addBooks, addUserBooks } from "../utils/librarySlice";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -14,15 +15,18 @@ const Header = () => {
   const dispatch = useDispatch()
 const [userImg,setUserImg] = useState()
 const [hide,setHide] = useState('hidden')
+const [books,setBooks] = useState(null)
+const [userUid, setUserUid] = useState(null)
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
-        console.log(user);
+        // console.log(user);
         dispatch(addUserName(user.displayName))
         dispatch(addProfilePic(user.photoURL))
         dispatch(adduserId(user.uid))
         setUserImg(user.photoURL)
+        setUserUid(user.uid)
         // navigate("/home");
       } else {
         // console.log("log out");
@@ -30,9 +34,27 @@ const [hide,setHide] = useState('hidden')
       }
     });
 
-    //getting and setting user details
-    // const userDetails = getDoc(db, 'users' , )
   }, []);
+
+// fetching data 
+useEffect(() => {
+  fetchLibraryBook();
+}, []);
+
+const fetchLibraryBook = async () => {
+  const query = await getDocs(collection(db, "readers"));
+  console.log(query.docs);
+  setBooks(query.docs);
+  dispatch(addBooks(query.docs));
+
+if (books != null) {
+  const filterQuery = books.filter(
+    (r) => userUid == r._document.data.value.mapValue.fields.userId.stringValue
+  );
+  console.log(filterQuery);
+  dispatch(addUserBooks(filterQuery))
+}
+};
 
 const handleHambuger =()=>{
 hide == 'hidden' ? setHide('block') : setHide('hidden')

@@ -10,10 +10,12 @@ const librarySlice = createSlice({
     {
         addBooks:(state,action)=>{
             state.libraryBooks = action.payload
+            // serializableCheck: false
         },
         addUserBooks:(state,action)=>{
-            console.log(action.payload)
+            console.log('dekho',action.payload)
             state.userBooks = action.payload
+            // serializableCheck: false
         }
     }
 })

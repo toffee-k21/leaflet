@@ -30,7 +30,7 @@ const fontObj = {
     }
     return arr;
   };
-  console.log(fun(Rating.stringValue))
+  // console.log(fun(Rating.stringValue))
   return (
     <div className="lg:m-4 m-10 ">
       <div class="lg:w-[430px] w-[350px] rounded-md shadow-md">

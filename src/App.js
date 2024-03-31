@@ -9,6 +9,7 @@ import UploadProfilePic from "./components/UploadProfilePic";
 import { Provider } from "react-redux";
 import appStore from "./utils/appStore";
 import PostYourBook from "./Pages/postYourBook";
+import BookShelf from "./Pages/BookShelf";
 
 function App() {
   return (
@@ -38,6 +39,9 @@ const appRouter = createBrowserRouter([
   },{
     path: '/postyourbook',
     element: <PostYourBook />
+  },{
+    path:'/test',
+    element:<BookShelf />
   }]
 );
 
