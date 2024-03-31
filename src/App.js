@@ -40,7 +40,7 @@ const appRouter = createBrowserRouter([
     path: '/postyourbook',
     element: <PostYourBook />
   },{
-    path:'/test',
+    path:'/bookshelf',
     element:<BookShelf />
   }]
 );

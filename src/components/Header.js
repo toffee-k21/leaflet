@@ -102,11 +102,20 @@ hide == 'hidden' ? setHide('block') : setHide('hidden')
             </ul>
           </div>
           <div className="hidden lg:block">
-           <Link to={'/postyourbook'}><button
+           <Link to={'/bookshelf'}><button
               type="button"
               className="rounded-md bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
             >
-             Add to library
+             BookShelf
+            </button>
+            </Link>
+          </div> 
+          <div className="hidden lg:block">
+           <Link to={'/postyourbook'}><button
+              type="button"
+              className="rounded-md bg-sky-300 text-black px-3 m-1 py-2 text-sm font-semibold shadow-sm hover:bg-sky-300/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+            >
+             Add Books
             </button>
             </Link>
           </div> 
