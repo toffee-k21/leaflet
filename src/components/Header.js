@@ -15,7 +15,7 @@ const Header = () => {
   const dispatch = useDispatch()
 const [userImg,setUserImg] = useState()
 const [hide,setHide] = useState('hidden')
-const [books,setBooks] = useState(null)
+const [books,setBooks] = useState([])
 const [userUid, setUserUid] = useState(null)
 
   useEffect(() => {
@@ -38,7 +38,9 @@ const [userUid, setUserUid] = useState(null)
 
 // fetching data 
 useEffect(() => {
-  fetchLibraryBook();
+  fetchLibraryBook()
+  // .then(()=>filter(books));
+  console.log(books)
 }, []);
 
 const fetchLibraryBook = async () => {
@@ -46,15 +48,16 @@ const fetchLibraryBook = async () => {
   console.log(query.docs);
   setBooks(query.docs);
   dispatch(addBooks(query.docs));
-
-if (books != null) {
-  const filterQuery = books.filter(
-    (r) => userUid == r._document.data.value.mapValue.fields.userId.stringValue
-  );
-  console.log(filterQuery);
-  dispatch(addUserBooks(filterQuery))
-}
 };
+
+// const filter = (a) =>{
+//   console.log(a)
+//   const filterQuery = a.filter(
+//     (r) => r._document.data.value.mapValue.fields.userId.stringValue == userUid
+//   );
+//   console.log(filterQuery);
+//   dispatch(addUserBooks(filterQuery))
+// }
 
 const handleHambuger =()=>{
 hide == 'hidden' ? setHide('block') : setHide('hidden')
