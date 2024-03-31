@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { db, storage } from "../utils/firebase";
 import Header from "../components/Header";
-
+import bookstoreImg from "../utils/img/bookstore.png"
 
 
 const PostYourBook = () => {
@@ -139,8 +139,8 @@ console.log(userData)
             </button>
           </Link>
         </div>
-        <div className="lg:w-6/12 w-full lg:m-0 m-2">
-          {/* <img src={bookstoreImg} /> */}
+        <div className="lg:w-6/12 w-full lg:my-14 lg:mx-0 m-2">
+          <img src={bookstoreImg} />
         </div>
       </div>
     </div>

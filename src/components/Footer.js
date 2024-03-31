@@ -4,7 +4,7 @@ const Footer = (props) => {
 
     return (
       <div className="border-t-[1px] mx-24 my-10">
-       <section class="relative overflow-hidden bg-white py-8 lg:mx-32">
+       <section class="relative overflow-hidden bg-white py-8 lg:mx-24">
     <div class="container relative z-10 mx-auto px-4">
       <div class="-m-8 flex flex-wrap items-center justify-between">
         <div class="w-auto p-8">
@@ -20,7 +20,7 @@ const Footer = (props) => {
             </li>
             <li class="p-5">
               <a class="font-medium text-gray-600 hover:text-gray-700" href="#">
-              © read.connect
+              © leaflet
               </a>
             </li>
             <li class="p-5">

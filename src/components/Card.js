@@ -2,7 +2,7 @@ import React from "react";
 import { IMG_URL, IMG_URL_profile } from "../utils/constants";
 
 const Card = (props) => {
-  // console.log(props.books._document.data.value.mapValue.fields)
+  console.log(props.books._document.data.value.mapValue.fields)
   const {
     Author,
     Discription,
@@ -32,7 +32,7 @@ const fontObj = {
   };
   // console.log(fun(Rating.stringValue))
   return (
-    <div className="lg:m-4 m-10 ">
+    <div className="lg:mx-4 my-10 m-10">
       <div class="lg:w-[430px] w-[350px] rounded-md shadow-md">
         <div class="flex flex-col rounded-md  ">
           <div class="flex justify-between">
