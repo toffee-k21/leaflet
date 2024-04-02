@@ -27,30 +27,28 @@ const UploadProfilePic = () => {
     updateProfile(auth.currentUser, {
       photoURL: ImgPath,
     });
-    // const docRef = doc(db,'readers',)
-    //         await updateDoc(docRef, {
-    //           bId: docRef.id,
-    //         });
 
-    //update profilew also
-    // updateProfile(auth.currentUser, {
-    //   photoURL: ImgPath,
-    // })
-    //   .then((r) => console.log(ImgPath))
-    //   .catch((e) => console.log(e));
   };
 
   const handleUserName = () =>
     updateProfile(auth.currentUser, {
       displayName: userName,
     })
-      .then((r) => console.log("updated"))
+      .then((r) => console.log(r))
       .catch((e) => console.log(e));
+
+      const handleInstaId =()=>{
+updateProfile(auth.currentUser,{
+  displayName: instaId,
+})
+.then((r) => console.log(r))
+      .catch((e) => console.log(e));
+      }
 
   return (
     <div className="lg:mx-40 lg:my-24 mx-3 my-10">
-        {userNaam}
-            <div className="my-12">
+      {userNaam}
+      <div className="my-12">
         <label className="text-lg font-semibold">Change your Username</label>
         <div className=" my-2">
           <input
@@ -85,6 +83,26 @@ const UploadProfilePic = () => {
         >
           <p className="">Upload</p>
         </button>
+      </div>
+      <div>
+      <div className="my-12">
+        <label className="text-lg font-semibold">Enter your instaId</label>
+        <div className=" my-2">
+          <input
+            className="p-2 border-[1px]  border-black rounded-l-md w-96"
+            type="text"
+            placeholder="Enter you instaId"
+            onChange={(e) => setInstaId(e.target.value)}
+          />
+          <button
+            onClick={handleInstaId}
+            className="bg-black text-white p-2 border-[1px] border-black rounded-r-md"
+          >
+            User Name
+          </button>
+        </div>
+      </div>
+
       </div>
     </div>
   );

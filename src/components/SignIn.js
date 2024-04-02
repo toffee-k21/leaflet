@@ -63,7 +63,7 @@ const SignIn = () => {
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
-        // console.log(user);
+        // console.log('user',user);
         dispatch(addUserName(user.displayName))
         dispatch(addProfilePic(user.photoURL))
         dispatch(adduserId(user.uid))

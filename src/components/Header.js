@@ -21,7 +21,7 @@ const [userUid, setUserUid] = useState(null)
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
-        // console.log(user);
+        console.log(user);
         dispatch(addUserName(user.displayName))
         dispatch(addProfilePic(user.photoURL))
         dispatch(adduserId(user.uid))
