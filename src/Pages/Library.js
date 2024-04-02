@@ -18,7 +18,6 @@ const Library = () => {
 
   return (
     <div>
-      <Header />
       <div className="flex flex-wrap justify-center lg:px-32 px-2 pt-10">
       {libraryBooks
         ? libraryBooks.map((r) => <Card books={r} />)

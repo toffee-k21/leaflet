@@ -33,24 +33,24 @@ const fontObj = {
   // console.log(fun(Rating.stringValue))
   return (
     <div className="lg:mx-4 my-10 m-10">
-      <div class="lg:w-[430px] w-[350px] rounded-md shadow-md">
+      <div class="lg:w-[630px] w-[350px] rounded-md shadow-md">
         <div class="flex flex-col rounded-md  ">
           <div class="flex justify-between">
             {/* <h2 className='text-gray-500'>by author</h2> */}
 
-            <div class="h-[280px] w-2/3 p-[10px]">
+            <div class="h-[380px] w-3/4 p-[10px]">
               <div
-                className="h-[164px] overflow-y-scroll"
+                className="h-[250px] overflow-y-scroll"
                 style={{ scrollbarWidth: "none" }}
               >
-                <h2 className="font-semibold text-lg">
+                <h2 className="font-semibold text-xl">
                   {TitleOfBook.stringValue}
                 </h2>
-                <p className="text-sm pb-1 text-gray-500">
+                <p className="text-sm pb-2 text-gray-500">
                   by {Author.stringValue}
                 </p>
                 <blockquote>
-                  <p class="text-gray-800 text-sm">{Discription.stringValue}</p>
+                  <p class="text-gray-800 text-[16px]">{Discription.stringValue}</p>
                 </blockquote>
               </div>
               <div className="border-t-[1px]">

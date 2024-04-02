@@ -10,6 +10,7 @@ import { Provider } from "react-redux";
 import appStore from "./utils/appStore";
 import PostYourBook from "./Pages/postYourBook";
 import BookShelf from "./Pages/BookShelf";
+import Filter from "./components/Filter";
 
 function App() {
   return (
@@ -32,7 +33,7 @@ const appRouter = createBrowserRouter([
     element: <Profile />
   },{
     path:'/library',
-    element: <Library />
+    element: <Filter />
   },{
     path:'/profile',
     element: <Profile />
@@ -42,7 +43,8 @@ const appRouter = createBrowserRouter([
   },{
     path:'/bookshelf',
     element:<BookShelf />
-  }]
+  }
+]
 );
 
 export default App;
