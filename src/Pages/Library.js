@@ -23,7 +23,6 @@ const Library = () => {
         ? libraryBooks.map((r) => <Card books={r} />)
         : console.log("na")}
       </div>
-      <Footer />
     </div>
   );
 };

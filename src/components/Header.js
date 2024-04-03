@@ -120,8 +120,8 @@ hide == 'hidden' ? setHide('block') : setHide('hidden')
             </Link>
           </div> 
           <Link to={'/profile'}>
-            <div className="w-11 h-11 items-center text-center" style={{clipPath:"circle(40%)"}}>
-              <img src={IMG_URL_profile + userImg + "?alt=media" } />
+            <div >
+              <img className="h-10 w-10 flex-shrink-0 rounded-full object-cover cursor-pointer" src={IMG_URL_profile + userImg + "?alt=media" } />
             </div>
           </Link>
 

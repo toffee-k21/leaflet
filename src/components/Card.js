@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { IMG_URL, IMG_URL_profile } from "../utils/constants";
 
 const Card = (props) => {
+  const [height, setHeight] = useState('h-[100px]')
   console.log(props.books._document.data.value.mapValue.fields)
   const {
     Author,
@@ -30,29 +31,32 @@ const fontObj = {
     }
     return arr;
   };
-  // console.log(fun(Rating.stringValue))
-  return (
-    <div className="lg:mx-4 my-10 m-10">
-      <div class="lg:w-[630px] w-[350px] rounded-md shadow-md">
-        <div class="flex flex-col rounded-md  ">
-          <div class="flex justify-between">
-            {/* <h2 className='text-gray-500'>by author</h2> */}
 
-            <div class="h-[380px] w-3/4 p-[10px]">
+  const toggleSeeMore =()=>{
+height == 'h-[100px]' ? setHeight('h-auto') : setHeight('h-[100px]')
+  }
+    // console.log(fun(Rating.stringValue))
+  return (
+    <div className="lg:mx-4 lg:my-10 my-4 w-full">
+      <div class="lg:w-[630px]  rounded-md shadow-md">
+        <div class="flex flex-col rounded-md  ">
+          <div class="lg:flex justify-between flex-wrap">
+            <div class="lg:h-[380px] lg:w-7/12 p-[10px]">
               <div
-                className="h-[250px] overflow-y-scroll"
+                className={`lg:h-[250px] ${height} lg:overflow-y-scroll overflow-hidden`}
                 style={{ scrollbarWidth: "none" }}
               >
                 <h2 className="font-semibold text-xl">
                   {TitleOfBook.stringValue}
                 </h2>
-                <p className="text-sm pb-2 text-gray-500">
+                <p className="text-sm pb-2 text-gray-500 ">
                   by {Author.stringValue}
                 </p>
                 <blockquote>
-                  <p class="text-gray-800 text-[16px]">{Discription.stringValue}</p>
+                  <p class="text-gray-800 text-[16px] lg:block">{Discription.stringValue}</p>
                 </blockquote>
               </div>
+              <button onClick={toggleSeeMore} className=" w-full m-auto font-bold mt-2">see more</button>
               <div className="border-t-[1px]">
                 <div className="text-xs font-semibold pt-[6px] pb-1 px-[2px]">Rating</div>
                 <div className="flex pb-[6px]">
@@ -97,16 +101,14 @@ const fontObj = {
                 </div>
               </div>
             </div>
-            <div
-              className="text-lg  w-1/2 rounded-r-md text-white flex items-end"
+            <div className="text-lg lg:w-5/12 w-full h-[400px] rounded-r-md text-white flex items-end"
               style={{
                 background: `url(${
                   IMG_URL + ImgVal.stringValue + "?alt=media"
                 })`,
                 backgroundSize: "cover",
               }}
-            ></div>
-            <div class="mt-4 border-t border-gray-300 pt-4 dark:border-gray-800"></div>
+            ></div>    
           </div>
         </div>
       </div>

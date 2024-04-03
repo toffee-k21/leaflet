@@ -1,13 +1,16 @@
 import React from 'react'
 import Library from '../Pages/Library'
+import Footer from './Footer'
+import Header from './Header'
 
 const Filter = () => {
   return (
     <div>
-        <section class="w-full">
+      <Header />
+        <section class="lg:w-10/12 lg:mx-24 mx-2 my-6">
   <div class="mx-auto max-w-7xl px-2 py-10 lg:px-10">
     <div class="md:flex md:flex-row md:items-start md:justify-between">
-      <h1 class="text-xl font-bold">Products</h1>
+      <h1 class="text-xl font-bold">Books</h1>
       <div class="mt-6 flex items-center  pt-2 md:mt-0 md:space-x-4  md:pt-0">
         <button
           type="button"
@@ -93,19 +96,19 @@ const Filter = () => {
     </div>
     <hr class="my-8" />
     <div class="lg:grid lg:grid-cols-12 lg:gap-x-6">
-      <div class="hidden space-y-6 divide-y lg:col-span-3 lg:block">
+      <div class="hidden space-y-6 divide-y lg:col-span-3 lg:block relative">
         <div>
           <ul class="space-y-2">
-            <li class="cursor-pointer font-medium">Sneakers</li>
-            <li class="cursor-pointer font-medium">Running Shoes</li>
+            <li class="cursor-pointer font-medium">Author</li>
+            {/* <li class="cursor-pointer font-medium">Running Shoes</li>
             <li class="cursor-pointer font-medium">Mens shoes</li>
             <li class="cursor-pointer font-medium">Women shoes</li>
-            <li class="cursor-pointer font-medium">Sandals</li>
+            <li class="cursor-pointer font-medium">Sandals</li> */}
           </ul>
         </div>
         <div class="flex items-center justify-between pt-4">
-          <h6 class="font-semibold">Color</h6>
-          <span class="block cursor-pointer">
+          <h6 class="font-semibold">Fiction</h6>
+          {/* <span class="block cursor-pointer">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -121,11 +124,11 @@ const Filter = () => {
               <line x1="12" y1="5" x2="12" y2="19"></line>
               <line x1="5" y1="12" x2="19" y2="12"></line>
             </svg>
-          </span>
+          </span> */}
         </div>
         <div class="flex items-center justify-between pt-4">
-          <h6 class="font-semibold">Size</h6>
-          <span class="block  cursor-pointer">
+          <h6 class="font-semibold">Non Fiction</h6>
+          {/* <span class="block  cursor-pointer">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -141,16 +144,16 @@ const Filter = () => {
               <line x1="12" y1="5" x2="12" y2="19"></line>
               <line x1="5" y1="12" x2="19" y2="12"></line>
             </svg>
-          </span>
+          </span> */}
         </div>
       </div>
-      <div class="w-full rounded-lg border-2 border-dashed px-2 lg:col-span-9 lg:min-h-min">
+      <div class="w-full rounded-lg  px-2 lg:col-span-9 ">
         <Library />
-
       </div>
     </div>
   </div>
 </section>
+<Footer />
 
     </div>
   )
