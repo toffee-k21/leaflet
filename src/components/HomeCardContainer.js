@@ -5,6 +5,7 @@ import { collection, getDocs } from "firebase/firestore";
 import { Link } from "react-router-dom";
 import { db } from "../utils/firebase";
 import { useSelector } from "react-redux";
+import Footer from "./Footer"
 
 const HomeCardContainer = () => {
   const [bookRef, SetBookRef] = useState([]);
@@ -33,12 +34,13 @@ const HomeCardContainer = () => {
             //       c._document.data.value.mapValue.fields.bId.stringValue
             //     }
             //   >
-                <Card books={c} />
+              <Card books={c} />
             //   </Link>
             );
           })}
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

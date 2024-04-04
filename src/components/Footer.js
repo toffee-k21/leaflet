@@ -3,7 +3,7 @@ import logo from "../utils/img/leafletlogo.png"
 const Footer = (props) => {
 
     return (
-      <div className="border-t-[1px] mx-24 my-10">
+      <div className=" lg:mx-24 lg:my-10 mx-2 mt-14 mb-8 border-t-[1px] border-black">
        <section class="relative overflow-hidden bg-white py-8 lg:mx-24">
     <div class="container relative z-10 mx-auto px-4">
       <div class="-m-8 flex flex-wrap items-center justify-between">

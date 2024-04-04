@@ -41,6 +41,14 @@ height == 'h-[100px]' ? setHeight('h-auto') : setHeight('h-[100px]')
       <div class="lg:w-[630px]  rounded-md shadow-md">
         <div class="flex flex-col rounded-md  ">
           <div class="lg:flex justify-between flex-wrap">
+          <div className="text-lg lg:w-5/12 w-full h-[400px] rounded-md text-white flex items-end" 
+              style={{
+                background: `url(${
+                  IMG_URL + ImgVal.stringValue + "?alt=media"
+                })`,
+                backgroundSize: "cover",
+              }}
+            ></div>  
             <div class="lg:h-[380px] lg:w-7/12 p-[10px]">
               <div
                 className={`lg:h-[250px] ${height} lg:overflow-y-scroll overflow-hidden`}
@@ -56,7 +64,7 @@ height == 'h-[100px]' ? setHeight('h-auto') : setHeight('h-[100px]')
                   <p class="text-gray-800 text-[16px] lg:block">{Discription.stringValue}</p>
                 </blockquote>
               </div>
-              <button onClick={toggleSeeMore} className=" w-full m-auto font-bold mt-2">see more</button>
+             <button onClick={toggleSeeMore} className=" w-full m-auto font-bold mt-2 lg:hidden ">see more</button>
               <div className="border-t-[1px]">
                 <div className="text-xs font-semibold pt-[6px] pb-1 px-[2px]">Rating</div>
                 <div className="flex pb-[6px]">
@@ -100,15 +108,7 @@ height == 'h-[100px]' ? setHeight('h-auto') : setHeight('h-[100px]')
                   </div>
                 </div>
               </div>
-            </div>
-            <div className="text-lg lg:w-5/12 w-full h-[400px] rounded-r-md text-white flex items-end"
-              style={{
-                background: `url(${
-                  IMG_URL + ImgVal.stringValue + "?alt=media"
-                })`,
-                backgroundSize: "cover",
-              }}
-            ></div>    
+            </div>  
           </div>
         </div>
       </div>
