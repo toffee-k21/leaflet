@@ -92,6 +92,13 @@ hide == 'hidden' ? setHide('block') : setHide('hidden')
                 </a></Link> 
               </li>
               <li>
+               <Link to={'/store'}><a
+                  className="text-sm font-semibold text-gray-800 hover:text-gray-900"
+                >
+                  Store
+                </a></Link> 
+              </li>
+              <li>
                 <Link to={'/about'}>
                 <a
                   className="text-sm font-semibold text-gray-800 hover:text-gray-900"
@@ -121,7 +128,7 @@ hide == 'hidden' ? setHide('block') : setHide('hidden')
             </Link>
           </div> 
           <div className="hidden lg:block">
-           <Link to={'/test'}><button
+           <Link to={'/sellyourbook'}><button
               type="button"
               className="rounded-md bg-sky-300 text-black px-3 m-1 py-2 text-sm font-semibold shadow-sm hover:bg-sky-300/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
             >
