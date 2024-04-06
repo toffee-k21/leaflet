@@ -10,7 +10,7 @@ const Filter = () => {
         <section class="lg:w-10/12 lg:mx-24 mx-2 my-6">
   <div class="mx-auto max-w-7xl px-2 py-10 lg:px-10">
     <div class="md:flex md:flex-row md:items-start md:justify-between">
-      <h1 class="text-xl font-bold">Books</h1>
+      <h1 class="text-xl font-bold">Books<div className="bg-sky-300 w-11 h-[2px]" ></div></h1>
       <div class="mt-6 flex items-center  pt-2 md:mt-0 md:space-x-4  md:pt-0">
         <button
           type="button"

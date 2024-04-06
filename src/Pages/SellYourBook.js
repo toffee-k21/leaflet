@@ -64,10 +64,11 @@ const clickHandle = async () => {
     <>
     <Header />
     <div className="flex justify-center flex-wrap">
-      <div className="flex w-4/6 justify-center flex-wrap ">
+      <div className="flex w-9/12 justify-center flex-wrap ">
         <div className="lg:w-6/12 w-full">
-          <h1 className="font-bold text-2xl w-full mt-10 mb-5 p-1 mx-2">
+          <h1 className="font-bold text-2xl w-full mt-16 mb-5 p-1 mx-2">
             Sell your book
+            <div className="bg-sky-300 w-11 h-[2px]"></div>
           </h1>
           <input
             value={title}

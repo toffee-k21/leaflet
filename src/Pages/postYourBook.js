@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { db, storage } from "../utils/firebase";
 import Header from "../components/Header";
-import bookstoreImg from "../utils/img/bookstore.png"
+import bookstoreImg from "../utils/img/Post.png"
 
 
 const PostYourBook = () => {
@@ -41,7 +41,6 @@ console.log(userData)
         userId: userData.userId,
         profileImg: userData.profilePic,
         userName: userData.userName
-
       });
 
       await updateDoc(docRef, {
@@ -56,17 +55,18 @@ console.log(userData)
     <>
     <Header />
     <div className="flex justify-center flex-wrap">
-      <div className="flex w-4/6 justify-center flex-wrap ">
+      <div className="flex w-9/12 justify-center flex-wrap ">
         <div className="lg:w-6/12 w-full">
-          <h1 className="font-bold text-2xl w-full mt-10 mb-5 p-1 mx-2">
+          <h1 className="font-bold text-2xl w-full mt-16 mb-5 p-1 mx-2">
             Add to your store
+            <div className="bg-sky-300 w-11 h-[2px]" ></div>
           </h1>
           <input
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             type="text"
             placeholder="Enter Title"
-            className="p-1 lg:m-2 my-2 border w-full "
+            className="p-1 lg:mx-2 lg:m-2 border w-full "
           />
           <input
             value={author}
