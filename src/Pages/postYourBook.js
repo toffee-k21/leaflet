@@ -35,7 +35,6 @@ console.log(userData)
         TitleOfBook: title,
         Author: author,
         Discription: desc,
-        // Category: bookOfCat,
         Rating: rate,
         ImgVal: val,
         instaId: ig,

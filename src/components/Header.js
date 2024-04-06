@@ -43,7 +43,7 @@ useEffect(() => {
   console.log(books)
 }, []);
 
-const fetchLibraryBook = async () => {
+const fetchLibraryBook = async ()  => {
   const query = await getDocs(collection(db, "readers"));
   console.log(query.docs);
   setBooks(query.docs);
@@ -92,12 +92,13 @@ hide == 'hidden' ? setHide('block') : setHide('hidden')
                 </a></Link> 
               </li>
               <li>
+                <Link to={'/about'}>
                 <a
-                  href="#"
                   className="text-sm font-semibold text-gray-800 hover:text-gray-900"
                 >
                   About
                 </a>
+                </Link>
               </li>
             </ul>
           </div>

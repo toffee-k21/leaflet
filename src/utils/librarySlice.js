@@ -13,13 +13,16 @@ const librarySlice = createSlice({
             // serializableCheck: false
         },
         addUserBooks:(state,action)=>{
-            console.log('dekho',action.payload)
+            // console.log('dekho',action.payload)
             state.userBooks = action.payload
             // serializableCheck: false
+        },
+        addBooksToStore : (state,action)=>{
+state.storeBooks = action.payload
         }
     }
 })
 
-export const { addBooks,addUserBooks } = librarySlice.actions
+export const { addBooks,addUserBooks,addBooksToStore } = librarySlice.actions
 
 export default librarySlice.reducer

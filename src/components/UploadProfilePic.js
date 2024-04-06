@@ -37,13 +37,13 @@ const UploadProfilePic = () => {
       .then((r) => console.log(r))
       .catch((e) => console.log(e));
 
-      const handleInstaId =()=>{
-updateProfile(auth.currentUser,{
-  displayName: instaId,
-})
-.then((r) => console.log(r))
-      .catch((e) => console.log(e));
-      }
+//       const handleInstaId =()=>{
+// updateProfile(auth.currentUser,{
+//   displayName: instaId,
+// })
+// .then((r) => console.log(r))
+//       .catch((e) => console.log(e));
+//       }
 
   return (
     <div className="lg:mx-40 lg:my-24 mx-3 my-10">
@@ -94,12 +94,12 @@ updateProfile(auth.currentUser,{
             placeholder="Enter you instaId"
             onChange={(e) => setInstaId(e.target.value)}
           />
-          <button
+          {/* <button
             onClick={handleInstaId}
             className="bg-black text-white p-2 border-[1px] border-black rounded-r-md"
           >
             User Name
-          </button>
+          </button> */}
         </div>
       </div>
 

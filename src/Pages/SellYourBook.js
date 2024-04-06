@@ -14,37 +14,38 @@ const SellYourBook = () => {
 const [desc, setDesc] = useState(null)
 const [title, setTitle] = useState(null)
 const [img,setImg] = useState(null)
-// const [img2,setImg2] = useState(null)
+const [img2,setImg2] = useState(null)
 const [ig,setIg] = useState(null)
 const [price,setPrice] = useState(null)
 const [val,setVal] = useState(null)
-const imgArr = [] 
-// const [imgArr, setImgArr] = useState([])
-const uploadImgs = () =>{
+// const imgArr = [] 
+
+const uploadImgs = async () =>{
     //to upload image to storage
     const val = v4();
     setVal(val)
     const imgRef = ref(storage, `seller/${val}`);
     uploadBytes(imgRef, img);
     console.log('clicked')
-    imgArr.push(val)
-    // setImgArr([imgArr.push(val)])
-    console.log(imgArr)
+    // imgArr.push(val)
 }
-console.log(imgArr)
+// console.log(val)
 
 const clickHandle = async () => {
-  console.log(imgArr)
+    //to upload image to storage
+    const val = v4();
+    setVal(val)
+    const imgRef = ref(storage, `seller/${val}`);
+    uploadBytes(imgRef, img);
+    console.log('clicked')
+ 
     try {
       const docRef = await addDoc(collection(db, `sellers`), {
         TitleOfBook: title,
-        // Author: author,
         Discription: desc,
-        // Category: bookOfCat,
-        // Rating: rate,
         price: price,
-        imgs: imgArr,
-        // imgVal:
+        imgVal:val,
+        // imgVal2:img2,
         instaId: ig,
         userId: userData.userId,
         profileImg: userData.profilePic,
@@ -94,40 +95,28 @@ const clickHandle = async () => {
            <label className='p-1 lg:m-2 my-2 w-full'>Enter price</label>
           <input
           placeholder='Price'
-            type="text"
+            type="number"
             className="p-1 lg:m-2 my-2 w-full border-[1px]"
             onChange={(e) => setPrice(e.target.value)}
           />
-          {/* <label className="px-2 text-blue-400">Rating:</label> */}
-          {/* <select
-            className="p-1 lg:m-2 my-2 border w-full"
-            value={rate}
-            onChange={(e) => setRate(e.target.value)}
-          >
-            <option value="0">0</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-          </select> */}
-          {/* <select
-            className="p-1 lg:m-2 mb-2 border w-full"
-            value={bookOfCat}
-            onChange={(e) => setBookOfCat(e.target.value)}
-            >
-            <option value="Fiction">Fiction</option>
-            <option value="Non-Fiction">Non-Fiction</option>
-          </select> */}
          <input
             type="file"
             className="p-1 lg:m-2 my-2 w-full"
             //value = {img}
             onChange={(e) => setImg(e.target.files[0])}
           />
+           {/* <button 
+         className='bg-black p-1 text-white rounded-md '
+         onClick={uploadImgs}> Upload</button> */}
+         {/* <input
+            type="file"
+            className="p-1 lg:m-2 my-2 w-full"
+            //value = {img}
+            onChange={(e) => setImg2(e.target.files[0])}
+          />
           <button 
          className='bg-black p-1 text-white rounded-md '
-         onClick={uploadImgs}> Upload</button>
+         onClick={uploadImgs}> Upload</button> */}
   
          
           {/* <button onClick={addImageField}>+ Add more images</button> */}
@@ -135,14 +124,14 @@ const clickHandle = async () => {
             <p className="text-blue-500 p-2 px-3 pt-3">
               How you want to connect with user ?
             </p>
+            <label className='px-2 font-semibold'>Enter your instaId</label>
             <input
               value={ig}
               onChange={(e) => setIg(e.target.value)}
               type="text"
-              placeholder="Enter your instagram Id"
+              placeholder="Ex: toffee_k21"
               className="p-1 lg:m-2 my-2 border w-full"
             />
-            <div className="text-gray-400 p-2">Ex: toffee_k21</div>
             <div className="text-gray-200 p-2">
               Upcoming: we are connecting through ig only further lots of
               plateform will be integrated so that user can choose as of their
