@@ -72,8 +72,10 @@ const Header = () => {
       <div className="relative w-full lg:px-24 px-2 bg-white">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-2 sm:px-6 lg:px-8">
           <div className="inline-flex items-center space-x-2">
-            <span>
+            <span className="cursor-pointer">
+          <Link to={"/home"}>
               <img className="w-[70px]" src={leaflet} />
+          </Link>
             </span>
             <span className="lg:block hidden font-bold">leaflet</span>
           </div>
