@@ -87,20 +87,20 @@ const UploadProfilePic = () => {
       <div>
       <div className="my-12">
         <label className="text-lg font-semibold">Enter your instaId</label>
-        <div className=" my-2">
-          <input
+        {/* <div className=" my-2"> */}
+          {/* <input
             className="p-2 border-[1px]  border-black rounded-l-md w-96"
             type="text"
             placeholder="Enter you instaId"
             onChange={(e) => setInstaId(e.target.value)}
-          />
+          /> */}
           {/* <button
             onClick={handleInstaId}
             className="bg-black text-white p-2 border-[1px] border-black rounded-r-md"
           >
             User Name
           </button> */}
-        </div>
+        {/* </div> */}
       </div>
 
       </div>
