@@ -19,13 +19,14 @@ const fetchLibraryBook = async ( )=>{
     const query = await getDocs(collection(db, "sellers"));
     console.log(query.docs);
     setBooks(query.docs);
-    dispatch(addBooksToStore(query.docs));
+    // dispatch(addBooksToStore(query.docs));
 }
 
   return (
     <div>
         <Header />
-        <CardStore data={books}/>
+        {books ? books.map((r)=><CardStore data={r}/>
+        ) : console.log('na')}
         <Footer />
     </div>
   )
