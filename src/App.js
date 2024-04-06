@@ -14,6 +14,7 @@ import Filter from "./components/Filter";
 import SellYourBook from "./Pages/SellYourBook";
 import Store from "./Pages/Store";
 import About from "./Pages/About";
+import BookOverview from "./Pages/BookOverview";
 
 function App() {
   return (
@@ -55,6 +56,9 @@ const appRouter = createBrowserRouter([
   },{
     path:'/about',
     element: <About />
+  },{
+    path:'/:resId',
+    element:<BookOverview />
   }
 ]
 );
