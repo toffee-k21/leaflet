@@ -75,36 +75,47 @@ hide == 'hidden' ? setHide('block') : setHide('hidden')
           </div>
           <div className="hidden grow items-start lg:flex">
             <ul className="ml-12 inline-flex space-x-8">
-              <li>
+              <li
+              className='navicon'>
                 <Link to={'/home'}>
                 <a
-                  className="text-sm font-semibold text-gray-800 hover:text-gray-900"
+                  className="text-sm font-semibold text-gray-800 hover:text-gray-900
+                  "
                 >
                   Home
                 </a>
+                <div className=" w-0 h-[2px] bg-sky-300 navUnderline"></div>
                 </Link>
               </li>
-              <li>
+              <li
+              className='navicon'>
                <Link to={'/library'}><a
                   className="text-sm font-semibold text-gray-800 hover:text-gray-900"
                 >
                   Library
-                </a></Link> 
+                </a>
+                <div className=" w-0 h-[2px] bg-sky-300 navUnderline"></div>
+                </Link> 
               </li>
-              <li>
+              <li
+              className='navicon'>
                <Link to={'/store'}><a
                   className="text-sm font-semibold text-gray-800 hover:text-gray-900"
                 >
                   Store
-                </a></Link> 
+                </a>
+                <div className=" w-0 h-[2px] bg-sky-300 navUnderline"></div>
+                </Link> 
               </li>
-              <li>
+              <li
+              className='navicon'>
                 <Link to={'/about'}>
                 <a
                   className="text-sm font-semibold text-gray-800 hover:text-gray-900"
                 >
                   About
                 </a>
+                <div className=" w-0 h-[2px] bg-sky-300 navUnderline"></div>
                 </Link>
               </li>
             </ul>
