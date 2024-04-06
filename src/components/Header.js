@@ -115,7 +115,16 @@ hide == 'hidden' ? setHide('block') : setHide('hidden')
               type="button"
               className="rounded-md bg-sky-300 text-black px-3 m-1 py-2 text-sm font-semibold shadow-sm hover:bg-sky-300/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
             >
-             Add Books
+             Add
+            </button>
+            </Link>
+          </div> 
+          <div className="hidden lg:block">
+           <Link to={'/test'}><button
+              type="button"
+              className="rounded-md bg-sky-300 text-black px-3 m-1 py-2 text-sm font-semibold shadow-sm hover:bg-sky-300/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+            >
+             Sell
             </button>
             </Link>
           </div> 

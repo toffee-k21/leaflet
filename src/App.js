@@ -11,6 +11,7 @@ import appStore from "./utils/appStore";
 import PostYourBook from "./Pages/postYourBook";
 import BookShelf from "./Pages/BookShelf";
 import Filter from "./components/Filter";
+import SellYourBook from "./Pages/SellYourBook";
 
 function App() {
   return (
@@ -43,6 +44,9 @@ const appRouter = createBrowserRouter([
   },{
     path:'/bookshelf',
     element:<BookShelf />
+  },{
+    path:'/test',
+    element:<SellYourBook />
   }
 ]
 );
