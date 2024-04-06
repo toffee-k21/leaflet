@@ -4,7 +4,7 @@ const Footer = (props) => {
 
     return (
       <div className=" lg:my-10 mx-2 mt-14 mb-8 border-t-[1px] lg:border-[0px] border-black">
-       <section class="relative overflow-hidden bg-white py-8 lg:mx-24">
+       <section class="relative overflow-hidden bg-white py-8 lg:px-24">
     <div class="container relative z-10 mx-auto px-4">
       <div class="-m-8 flex flex-wrap items-center justify-between">
         <div class="w-auto p-8">
