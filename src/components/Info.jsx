@@ -7,9 +7,9 @@ import{services} from '../cont';
 
 const ServiceCard =({ index, title,icon,desc})=>{
   return (
-    <Tilt className="xs:w-[250px] w-full">
+    <Tilt className="w-[250px] w-full">
       <motion.div 
-      className='mx-24 w-full green-pink-gradient p-[1px] rounded-[20px] shadow-card'
+      className='lg:mx-24 mx-[80px] w-full green-pink-gradient p-[1px] rounded-[20px] shadow-card'
     >
       <div 
       options={{
@@ -17,7 +17,7 @@ const ServiceCard =({ index, title,icon,desc})=>{
         scale:1,
         speed:450
       }}
-      className=' bg-tertiary rounded-[20px] py-5 px-12 min-h-[280px] flex justify-evenly items-center flex-col'>
+      className=' bg-tertiary rounded-[20px] py-5 lg:px-12 px-10 min-h-[280px] flex justify-evenly items-center flex-col'>
       <img src={icon} alt={title} className='w-16 h-16 object-contain'/>
       <h3 className='text-white text-[20px] font-bold text-center'>{title}</h3>
       <p className='text-white text-[13px] font-italic text-center'>{desc}</p>
