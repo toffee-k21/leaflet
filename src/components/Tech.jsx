@@ -7,7 +7,7 @@ import{technologies} from '../cont';
 
 const ServiceCard =({ index, title,icon,desc})=>{
   return (
-    <Tilt className="w-[180px] w-full">
+    <Tilt className="w-[180px] ">
       <motion.div 
       className='lg:mx-24 mx-4 w-full green-pink-gradient p-[1px] rounded-[20px] shadow-card'
     >

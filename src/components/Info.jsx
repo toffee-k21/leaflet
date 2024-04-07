@@ -7,9 +7,9 @@ import{services} from '../cont';
 
 const ServiceCard =({ index, title,icon,desc})=>{
   return (
-    <Tilt className="w-[250px] w-full">
+    <Tilt className="ws:w-[250px] ">
       <motion.div 
-      className='lg:mx-24 mx-[80px] w-full green-pink-gradient p-[1px] rounded-[20px] shadow-card'
+      className='lg:mx-24 mx-[80px] w-[250px] green-pink-gradient p-[1px] rounded-[20px] shadow-card'
     >
       <div 
       options={{
