@@ -2,7 +2,6 @@ import {Suspense,useEffect,useState} from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls,Preload,useGLTF} from '@react-three/drei';
 import CanvasLoader from '../Loader';
-import { color } from 'three/examples/jsm/nodes/Nodes.js';
 
 const Computers = (isMobile) => {
   const computers=useGLTF('./books/scene.gltf');
@@ -28,20 +27,19 @@ const Computers = (isMobile) => {
       </mesh>
   )
 }
-
-const ComputersCanvas=()=>{
+const ComputersCanvas = () => {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-  const mediaQuery = window.matchMedia("(max-width: 500px)");
+    const mediaQuery = window.matchMedia("(max-width: 500px)");
 
-  setIsMobile(mediaQuery.matches);
+    setIsMobile(mediaQuery.matches);
 
-  const handleMediaQueryChange = (event) => {
-    setIsMobile(event.matches);
-  };
+    const handleMediaQueryChange = (event) => {
+      setIsMobile(event.matches);
+    };
 
-  mediaQuery.addEventListener("change", handleMediaQueryChange);
+    mediaQuery.addEventListener("change", handleMediaQueryChange);
 
 
   return () => {
@@ -50,7 +48,7 @@ const ComputersCanvas=()=>{
 }, []);
 
   return (
-    <Canvas frameloop="demand" shadows
+    <Canvas className='lg:block hidden ' frameloop="demand" shadows
     camera={{position:[20,5,5],fov: 25}}
     gl={{preserveDrawingBuffer:true}}
     >
