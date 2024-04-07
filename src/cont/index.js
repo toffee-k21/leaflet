@@ -7,6 +7,7 @@ import {
   typescript,
   html,
   css,
+  andr,
   reactjs,
   redux,
   tailwind,
@@ -23,6 +24,9 @@ import {
   jobit,
   tripguide,
   threejs,
+  github,
+  kotlin,
+  firebase
 } from "../assets";
 
 
@@ -64,10 +68,6 @@ const technologies = [
     icon: javascript,
   },
   {
-    name: "TypeScript",
-    icon: typescript,
-  },
-  {
     name: "React JS",
     icon: reactjs,
   },
@@ -80,82 +80,75 @@ const technologies = [
     icon: tailwind,
   },
   {
-    name: "Node JS",
-    icon: nodejs,
-  },
-  {
-    name: "MongoDB",
-    icon: mongodb,
-  },
-  {
     name: "Three JS",
     icon: threejs,
   },
   {
     name: "git",
     icon: git,
-  },
-  {
-    name: "figma",
-    icon: figma,
-  },
-  {
-    name: "docker",
-    icon: docker,
-  },
+  },{
+    name:"android",
+    icon:andr,
+  }
+  ,{
+    name:"kotlin",
+    icon:kotlin,
+  }
+  ,{
+    name:"firebase",
+    icon:firebase,
+  }
 ];
 
 const experiences = [
   {
-    title: "React.js Developer",
-    company_name: "Starbucks",
-    icon: starbucks,
+    title: "Came up with a idea",
+    company_name: "Leaflet",
+    icon: github,
     iconBg: "#383E56",
-    date: "March 2020 - April 2021",
+    date: "5TH APRIL",
     points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
+      "Came up with a idea of creating a web applications using React.js and other related technologies.",
+      "Goal is to create a fully-functional digital book library to connect different readers.",
+      "Implementing and ensuring user benefits.",
+      "Finding possiblities of creating website as well as a app which helps user to connect with similar interest people.",
     ],
   },
   {
-    title: "React Native Developer",
-    company_name: "Tesla",
-    icon: tesla,
+    title: "Creating our website.",
+    company_name: "Leaflet",
+    icon: reactjs,
     iconBg: "#E6DEDD",
-    date: "Jan 2021 - Feb 2022",
+    date: "6TH APRIL 1:00 PM",
     points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
-    ],
+      "Creating a website for our digital book library using React was a challenging yet rewarding experience.",
+    "Designing a scalable and reusable component architecture was crucial, Integrating with backend services to fetch and manage book data can be complex, using state management libraries like Redux",
+  "Ensuring the frontend is responsive and works well on different devices and screen sizes requires careful planning and implementation."],
   },
   {
-    title: "Web Developer",
-    company_name: "Shopify",
-    icon: shopify,
+    title: "Creating our Android App",
+    company_name: "Leaflet",
+    icon: andr,
     iconBg: "#383E56",
-    date: "Jan 2022 - Jan 2023",
+    date: "6TH APRIL 5:00 PM",
     points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
-    ],
+      "Creating an Android app for a digital book library using Kotlin and Android Studio in a limited time frame was a challenging task.",
+      "Challenging to decide which features are essential for the initial release and which can be postponed to future updates."
+    ,"Ensuring that the app performs well, even with a large number of books and users, can be a significant challenge.",
+    ,"Ensuring the security of user data and preventing unauthorized access to books and user information is crucial. This involves implementing secure authentication and data encryption mechanisms."
+  ],
   },
   {
-    title: "Full stack Developer",
-    company_name: "Meta",
-    icon: meta,
+    title: "Adding Some Spicy Stuff and Giving final touch.",
+    company_name: "Leaflet",
+    icon: javascript,
     iconBg: "#E6DEDD",
-    date: "Jan 2023 - Present",
+    date: "6TH APRIL 6:00 PM",
     points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
+      "Developing and creating about page and using 3d models was a very challenging task.",
+      "Rendering 3d models using React js and three js into the website from scratch was very hard.",
+      "Implementing responsive design and ensuring browser compatibility, and also used Gemini for complex issues faced while creating the page.",
+      "After some final touches in website and app, Our Website was created.",
     ],
   },
 ];

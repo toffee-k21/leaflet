@@ -3,6 +3,13 @@ import creator from "./creator.png";
 import mobile from "./mobile.png";
 import web from "./web.png";
 import github from "./github.png";
+import you from "./you.jpeg";
+import nav from "./nav.jpg";
+import ui from "./ui.png";
+import and from "./and.jpeg";
+import andr from "./andr.jpeg";
+import firebase from "./firebase.png";
+import kotlin from "./kotlin.png";
 
 import css from "./tech/css.png";
 import docker from "./tech/docker.png";
@@ -28,12 +35,17 @@ import jobit from "./jobit.png";
 import tripguide from "./tripguide.png";
 
 export {
+  ui,
+  and,
+  nav,
+  you,
   backend,
   creator,
   mobile,
   web,
   github,
   css,
+  andr,
   docker,
   figma,
   git,
@@ -47,6 +59,8 @@ export {
   typescript,
   threejs,
   meta,
+  kotlin,
+  firebase,
   shopify,
   starbucks,
   tesla,

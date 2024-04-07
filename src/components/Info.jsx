@@ -23,6 +23,7 @@ const ServiceCard =({ index, title,icon,desc})=>{
       <p className='text-white text-[13px] font-italic text-center'>{desc}</p>
       </div>
       </motion.div></Tilt>
+      
   )
 }
 
